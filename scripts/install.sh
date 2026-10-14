@@ -29,13 +29,14 @@ else
   else
     echo "Node: installing into $NODE_DIR ..."
     mkdir -p "$NODE_DIR"
-    # Download latest LTS for macOS arm64
-    NODE_TARBALL="node-v20.18.0-darwin-arm64.tar.gz"
-    NODE_URL="https://nodejs.org/dist/v20.18.0/$NODE_TARBALL"
+    # Download latest Node 22 LTS for macOS arm64
+    NODE_VERSION="v22.23.3"
+    NODE_TARBALL="node-${NODE_VERSION}-darwin-arm64.tar.gz"
+    NODE_URL="https://nodejs.org/dist/${NODE_VERSION}/$NODE_TARBALL"
     curl -fsSL "$NODE_URL" -o "/tmp/$NODE_TARBALL"
     tar -xzf "/tmp/$NODE_TARBALL" -C /tmp
-    cp -R "/tmp/node-v20.18.0-darwin-arm64"/* "$NODE_DIR/"
-    rm -rf "/tmp/$NODE_TARBALL" "/tmp/node-v20.18.0-darwin-arm64"
+    cp -R "/tmp/node-${NODE_VERSION}-darwin-arm64"/* "$NODE_DIR/"
+    rm -rf "/tmp/$NODE_TARBALL" "/tmp/node-${NODE_VERSION}-darwin-arm64"
     echo "Node: installed ($($NODE_DIR/bin/node --version))"
   fi
 fi
