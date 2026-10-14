@@ -1,0 +1,10 @@
+.DS_Store
+.env
+local/.env
+*.log
+var/
+node_modules/
+output/
+.agents/
+*.pem
+*.key

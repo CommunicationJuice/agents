@@ -1,0 +1,37 @@
+affinity:
+  app: /Applications/Affinity.app
+  bundle_id: com.canva.affinity
+  required: true
+  note: Install Affinity 3 unified app here; if the path differs, update this file.
+
+hyperframes:
+  cli: hyperframes
+  source: npm
+  prefix: /Users/Shared/Agents/.node
+  required: true
+
+node:
+  runtime: /Users/Shared/Agents/.node/bin/node
+  npm: /Users/Shared/Agents/.node/bin/npm
+  required: true
+
+canva:
+  api_base: https://api.canva.com
+  test_folder_id: ""      # set in local/.env or Infisical
+  allow_writes: false     # default read-only guard
+
+higgsfield:
+  cli: higgsfield
+  mcp_url: https://mcp.higgsfield.ai/mcp
+
+paths:
+  workspace_root: /Users/Shared/Agents/agents
+  output_root: /Users/Shared/Agents/agents/output
+  log_root: /Users/Shared/Agents/agents/var/log
+
+# Mapping of old sibling-relative paths to this monorepo layout
+sibling_map:
+  ../ai-media-generation: ./ai-media-generation
+  ../video-editing: ./video-editing
+  ../Affinity-Automation: ./Affinity-Automation
+  ../Creator: ./Creator
