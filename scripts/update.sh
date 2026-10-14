@@ -25,4 +25,18 @@ git submodule update --init --recursive --remote >> "$LOG" 2>&1 || {
   exit 1
 }
 
+# Local adaptation layer: sibling symlinks so original ../<repo> paths keep working
+UMBRELLA_ROOT="$(cd "$ROOT/.." && pwd)"
+for submodule in Creator video-editing ai-media-generation Affinity-Automation; do
+  target="$UMBRELLA_ROOT/$submodule"
+  if [[ ! -L "$target" ]]; then
+    ln -s "agents/$submodule" "$target" >> "$LOG" 2>&1 || true
+  fi
+done
+
+# Seed local env file if missing
+if [[ ! -f "$ROOT/local/.env" && -f "$ROOT/local/env.example" ]]; then
+  cp "$ROOT/local/env.example" "$ROOT/local/.env"
+fi
+
 echo "[$(date -Iseconds)] Update complete" >> "$LOG"
