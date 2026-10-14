@@ -1,14 +1,15 @@
 #!/bin/zsh
 # activate — source this file to put the shared Art 2 agent tooling on PATH
-export AGENTS_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]:-${(%):-%x}}")/.." && pwd)"
-export PATH="$AGENTS_ROOT/.node/bin:$AGENTS_ROOT/bin:$PATH"
+export AGENTS_DIR="$(cd "$(dirname "${BASH_SOURCE[0]:-${(%):-%x}}")/.." && pwd)"
+export AGENTS_ROOT="$(cd "$AGENTS_DIR/.." && pwd)"
+export PATH="$AGENTS_ROOT/.node/bin:$AGENTS_DIR/bin:$PATH"
 export AGENTS_NODE_PREFIX="${AGENTS_ROOT}/.node"
-export AGENTS_WORKSPACE_ROOT="$AGENTS_ROOT"
+export AGENTS_WORKSPACE_ROOT="$AGENTS_DIR"
 
 # Convenience aliases
-alias agents-update="$AGENTS_ROOT/scripts/update.sh"
-alias agents-install="$AGENTS_ROOT/scripts/install.sh"
+alias agents-update="$AGENTS_DIR/scripts/update.sh"
+alias agents-install="$AGENTS_DIR/scripts/install.sh"
 
-echo "Agent workspace activated: $AGENTS_ROOT"
+echo "Agent workspace activated: $AGENTS_DIR"
 echo "Node: $(node --version 2>/dev/null || echo 'not installed')"
 echo "Hyperframes: $(hyperframes --version 2>/dev/null || echo 'not installed')"
