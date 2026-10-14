@@ -6,12 +6,10 @@ ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 LOG_DIR="/Users/Shared/Agents/var/log"
 mkdir -p "$LOG_DIR"
 LOG="$LOG_DIR/agents-update.log"
-SSH_DIR="/Users/Shared/Agents/.ssh"
-KEY="$SSH_DIR/id_ed25519_agents"
 
 echo "[$(date -Iseconds)] Starting agents update" >> "$LOG"
 
-export GIT_SSH_COMMAND="ssh -i '$KEY' -o IdentitiesOnly=yes -o StrictHostKeyChecking=accept-new"
+export GIT_SSH_COMMAND="ssh -F /Users/Shared/Agents/.ssh/config -o IdentitiesOnly=yes"
 
 cd "$ROOT"
 

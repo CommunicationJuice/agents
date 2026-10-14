@@ -1,16 +1,16 @@
 [submodule "Creator"]
 	path = Creator
-	url = git@github.com:CommunicationJuice/creator.git
+	url = gh-creator:CommunicationJuice/creator.git
 	branch = main
 [submodule "video-editing"]
 	path = video-editing
-	url = git@github.com:CommunicationJuice/video-editing.git
+	url = gh-video-editing:CommunicationJuice/video-editing.git
 	branch = main
 [submodule "ai-media-generation"]
 	path = ai-media-generation
-	url = git@github.com:CommunicationJuice/ai-media-generation.git
+	url = gh-ai-media-generation:CommunicationJuice/ai-media-generation.git
 	branch = main
 [submodule "Affinity-Automation"]
 	path = Affinity-Automation
-	url = git@github.com:CommunicationJuice/affinity-automation.git
+	url = gh-affinity-automation:CommunicationJuice/affinity-automation.git
 	branch = main
